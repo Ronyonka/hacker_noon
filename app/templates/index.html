@@ -23,14 +23,14 @@
     <div class="cards">
       {% for blog in first %}
       <h3>{{blog.post}}</h3>
-      {% endfor %}
+      
 
-      <!-- <img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2017/06/p-1-3-secrets-of-people-who-always-get-job-offers.jpg" alt="my image" height="200px" width="100%"> -->
         <div class="middle">
           <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="/new_blog"> Add a new blog</a>
-          <a class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" href="/view_blogs"> Read More</a>
+          <a class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" href="{{url_for('main.view_blogs',blog_id = blog.id)}}"> Read More</a>
           
         </div>
+        {% endfor %}
       </div>
 
       {% for blog in index %}

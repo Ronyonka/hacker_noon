@@ -9,7 +9,7 @@ from ..request import get_quotes
 @main.route('/')
 def index():
 
-	title = 'Home Page - Welcome to wat Blogs, your daily inspiration'
+	title = 'Home Page - Welcome to  B-Logs, your daily inspiration'
 
 	index=Blog.query.all()
 	first=Blog.query.limit(1).all()
@@ -32,8 +32,8 @@ def new_blog():
 		return redirect(url_for('main.index'))
 	return render_template('new_blog.html',form=form)
 
-@main.route('/view_blogs', methods = ['GET','POST'])
-def view_blogs():
+@main.route('/view_blogs/<int:blog_id>', methods = ['GET','POST'])
+def view_blogs(blog_id):
 	blog = Blog.query.filter_by(id=blog_id).first()
 	first=Blog.query.limit(1).all()
 
@@ -41,9 +41,9 @@ def view_blogs():
 	form = CommentForm()
 	if form.validate_on_submit():
 		name = form.name.data
-		comment = form.name.data
+		comment = form.comment.data
 		new_comment = Comment(name=name, comment=comment,blog_id=blog.id)
 		new_comment.save_comment()
 		return redirect(url_for('main.view_blogs', blog_id=blog.id))
 	comments = Comment.query.filter_by(blog_id=blog.id)
-	return render_template('view_blogs.html',first=first, form=form,comments=comments)
+	return render_template('view_blogs.html',first=first,blog=blog, form=form,comments=comments)
