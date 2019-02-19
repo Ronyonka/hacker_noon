@@ -1,4 +1,4 @@
-# ReadPress
+# B-Log
 This is a website that allows users to post blogs and comment on them 19th february 2019
 ### By Ron Onyonka
 
