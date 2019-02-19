@@ -59,21 +59,20 @@ class Blog(UserMixin,db.Model):
 	category = db.Column(db.String(1000))
 	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-	# comments = db.relationship('Comment',backref = 'blog',lazy = "dynamic")
+	comments = db.relationship('Comment',backref = 'blog',lazy ="dynamic")
 
 	def save_blog(self):
 		db.session.add(self)
 		db.session.commit()
 
-# class Comment(UserMixin,db.Model):
-# 	"""docstring for Comment"""
-# 	__tablename__ = 'comments'
-# 	id = db.Column(db.Integer, primary_key=True)
-# 	title = db.Column(db.String(255))
-# 	comments = db.Column(db.String(1000))
-# 	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-# 	blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
-# 	user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+class Comment(db.Model):
+	__tablename__ = 'comments'
+	id = db.Column(db.Integer, primary_key=True)
+	name= db.Column(db.String(255))
+	comment = db.Column(db.Text)
+	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+	blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"), nullable=False)
+
 
 
 	def save_comment(self):

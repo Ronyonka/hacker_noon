@@ -8,44 +8,46 @@
 {% endblock%}
 
 <div class="container-fluid">
+  <div class="row">  
+      <h1 style="text-align:center;"><strong>B-Log</strong></h1>
+  </div>
+  <hr>
   <div class="row">
-    <div class="col-md-8">
-      <h1>B-Log</h1>
-
+      <h3 style="text-align:center;">Quotes</h3>
+      <div class="cards-two">
+          <p class="text-center">"{{quote}}"<br></p>
+          <p class="text-center">- {{author}} -<br></p>
+      </div>
+      <hr>
+      <br>
     <div class="cards">
       {% for blog in first %}
       <h3>{{blog.post}}</h3>
       {% endfor %}
-      <img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2017/06/p-1-3-secrets-of-people-who-always-get-job-offers.jpg" alt="my image" height="200px" width="100%">
+
+      <!-- <img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2017/06/p-1-3-secrets-of-people-who-always-get-job-offers.jpg" alt="my image" height="200px" width="100%"> -->
         <div class="middle">
-          <a class="btn btn-info btn-lg text-center" href="/view_blogs"> Read More</a>
+          <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="/new_blog"> Add a new blog</a>
+          <a class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" href="/view_blogs"> Read More</a>
+          
         </div>
-</div>
+      </div>
 
       {% for blog in index %}
       <div class="card">
         <h3>{{blog.body}}</h3>
         <p>By:{{blog.post}}</p>
         <p>Posted at {{blog.date_posted}}</p>
-        <p><a href="/feedback">leave feedback</a></p>
       </div>
 
       {% endfor %}
     </div>
-    <div class="col-md-2">
-      <h3>Quotes</h3>
-      {%for items in popular%}
-      <hr>
-      <div class="cards-two">
-      <h4>Quote by {{items.author}}</h4>
-      <p><em>{{items.quote}}</em></p>
-      </div>
-      <br>
 
-      {%endfor%}
 
-<a class="btn btn-success btn-lg text-center" href="/new_blog"> Add a new =blog</a>
+    
+
+
     </div>
-  </div>
+ 
 </div> 
 {% endblock%}

@@ -3,5 +3,23 @@
 {% for blog in first %}
   <h3>{{blog.post}}</h3>
   <h3>{{blog.body}}</h3>
+  <hr>
+  <div class="row">
+    <h2>Add Comment</h2>
+    {{wtf.quick_form(form)}}
+  </div>
+  <div class="row">
+      <h3>Comments</h3>
+      {% if comments %}
+      {% for com in comments %}
+      <div class="thumbnail">
+        <p>{{com.comment}} ~ {{com.name}}</p>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>There are no comments</p>
+      {% endif %}
+
+  </div>
   {% endfor %}
  {% endblock%}

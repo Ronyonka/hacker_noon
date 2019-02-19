@@ -3,9 +3,9 @@ from wtforms import StringField,TextAreaField,SubmitField,SelectField
 from wtforms.validators import Required
 
 class CommentForm(FlaskForm):
-	title = StringField('Comment title',validators=[Required()])
+	name = StringField('Enter Name:',validators=[Required()])
 
-	comment = TextAreaField('blog comment', validators=[Required()])
+	comment = TextAreaField('Add comment', validators=[Required()])
 
 	submit = SubmitField('Submit')
 
