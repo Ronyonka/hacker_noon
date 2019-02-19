@@ -26,11 +26,12 @@
       
 
         <div class="middle">
-          <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="/new_blog"> Add a new blog</a>
+          
           <a class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" href="{{url_for('main.view_blogs',blog_id = blog.id)}}"> Read More</a>
           
         </div>
         {% endfor %}
+        <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="/new_blog"> Add a new blog</a>
       </div>
 
       {% for blog in index %}
