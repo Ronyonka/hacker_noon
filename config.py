@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    BASE_URL = 'http://quotes.stormconsultancy.co.uk/{}.json'
+    BASE_URL ='http://quotes.stormconsultancy.co.uk/{}.json'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ron:3159@localhost/rblog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
