@@ -2,4 +2,4 @@ start.sh
 virtual/
 *.pyc
 .vscode
-migrations/
+
